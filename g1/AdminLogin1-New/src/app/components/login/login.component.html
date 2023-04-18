@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="col-left">
+            <div class="login-text">
+                <h2>Logo</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget eros
+                    dapibus, ultricies tellus vitae, consectetur tortor. Etiam rutrum
+                    placerat
+                </p>
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm.value)">
+                    <div>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Username" formControlName="username" />
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <input type="password" matInput placeholder="Password" formControlName="password" />
+                        </mat-form-field>
+                    </div>
+
+                    <div class="button">
+                        <button type="submit" mat-raised-button
+                            style="background-color: purple;color: white;width:100%;">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

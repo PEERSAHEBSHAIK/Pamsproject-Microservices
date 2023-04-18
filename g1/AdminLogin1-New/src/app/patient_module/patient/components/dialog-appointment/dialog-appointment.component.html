@@ -1,0 +1,31 @@
+<section>
+    <div class="container">
+        <br>
+        <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Appointment Booking</h1>
+        <br>
+        <br>
+        <form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm.value)">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <mat-form-field appearance="fill" class="example-full-width">
+                        <mat-label>Date Of Appointment</mat-label>
+                        <input name="date" matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" ngModel
+                            required>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker> </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Reason</mat-label>
+                        <textarea name="reason" matInput ngModel required></textarea>
+                    </mat-form-field>
+                </div>
+                <button type="submit" mat-raised-button color="primary" routerLinkActive="active">
+                    submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>

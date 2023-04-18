@@ -1,0 +1,32 @@
+.example-card {
+    max-width: 400px;
+
+  }
+  
+  .example-header-image {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYtnajTdP47g5aQBjzHewBUGX9xiRiG2e4h5jx9AM&s');
+    background-size: cover;
+  }
+  
+  .example-card:hover{
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+  }
+
+  .example-header-image2{
+    background-image: url('https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/611vPgdbyVL._SX355_.jpg');
+    background-size: cover;
+
+  }
+
+  @media(max-width: 767px){
+    .example-card {
+      max-width: 50%;
+      float: left;
+  
+    }
+    .main{
+      float: left;
+      width: 25%;
+    }
+
+  }

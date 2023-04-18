@@ -1,0 +1,122 @@
+<mat-toolbar style="background-color: #000000">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+        <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+
+    <span>PMS</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button matTooltip="Appointments" [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu" routerLinkActive="active">
+        <mat-icon><span class="material-symbols-outlined">
+                pending_actions
+            </span></mat-icon>
+
+    </button>
+    <div class="appointmentlist">
+        <mat-menu #menu="matMenu">
+            <button routerLink="/physician/appointments" mat-menu-item>
+                <mat-icon>pending_actions</mat-icon>
+
+                <span>Appointments</span>
+            </button>
+
+            <button routerLink="/physician/pending-appointments" mat-menu-item>
+
+                <mat-icon>pending</mat-icon>
+                <span> Pending Appointments</span>
+
+            </button>
+        </mat-menu>
+    </div>
+    <!-- <button routerLink="doc" mat-icon-button matTooltip="Email" class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
+        <mat-icon><span class="material-symbols-outlined"> mail </span></mat-icon>
+    </button> -->
+    <!-- <button
+        mat-icon-button
+         (click)="showNotificationCard = true"
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <div
+          matBadgeColor="accent"
+            class="icon"
+            matBadge="1"
+            matBadgePosition="after"
+          >
+            <mat-icon  matTooltip="Notifications">notifications</mat-icon>
+          </div>
+        </button> -->
+
+    <!-- <button mat-icon-button matTooltip="Account" aria-label="Example icon-button with a menu">
+        <mat-icon><span class="material-symbols-outlined">
+                account_circle
+            </span></mat-icon>
+    </button> -->
+    <button mat-icon-button aria-label="Example icon-button with a menu">
+        <mat-icon><span class="material-symbols-outlined">
+                logout
+            </span></mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <img class="avatar mat-elevation-z8" src="assets/doc-img1.jpg" />
+
+        <h4 class="name">Rama Krishna</h4>
+        <p class="designation">Nurse</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/profile">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/about">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/help">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow-x: hidden;">
+        <div style="margin:10px">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- <div class="notfybox">
+      <div class="notification-card-container" *ngIf="showNotificationCard">
+      <button style="float: right;color: black;" mat-button color="primary" (click)="showNotificationCard = false">X</button>
+    <div style="background-color: rgb(40, 119, 119);" class="notification-message">You have notifications</div>
+    <mat-card   *ngFor="let details of patientdetails">
+      <mat-card-actions>
+      <mat-card-content>
+        <p style="margin: 0px;">Patient email : {{ details.email }}</p>
+        <p style="margin: 0px;">Patient phone : {{ details.phone }}</p>
+        <p style="margin: 0px;">Patient Address : {{ details.address }}</p>
+      </mat-card-content>
+     
+    </mat-card-actions>
+    <div class="container-btn" style="display: inline;">
+      <button style="float: left; margin: 10px;" id="card-button" mat-raised-button color="primary"  >Accept</button>
+     <button style="float: right;margin: 10px;" id ="card-button1"  mat-raised-button color="accent">Reject</button>
+    </div>
+    </mat-card>
+  </div>
+  </div> -->

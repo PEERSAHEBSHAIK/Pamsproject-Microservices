@@ -1,0 +1,127 @@
+<!-- <mat-toolbar style="background-color: #099dc6">
+    <span>
+      <h1 style="text-align: center;color: white;"><b>Patient Management System</b></h1></span>
+  </mat-toolbar> -->
+
+<div style="display: flex; justify-content: space-evenly">
+    <div>
+        <img src="../../../assets/log2.png" alt="hello" style="height: 70vh; margin-top: 67px" />
+    </div>
+
+    <div class="registration">
+        <div>
+            <h1>Registration</h1>
+        </div>
+        <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm.value)">
+            <div>
+                <mat-form-field class="Title" id="title" appearance="outline" style="width: 100%">
+                    <mat-label>Title</mat-label>
+                    <mat-select name="title" ngModel required>
+                        <mat-option value="Mr.">Mr.</mat-option>
+                        <mat-option value="Ms.">Ms.</mat-option>
+                        <mat-option value="Mrs">Mrs.</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="myError('title', 'required')">Title is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <!-- <mat-form-field appearance="outline" class="left">
+            <mat-label>FirstName</mat-label>
+            <input matInput name="firstName" ngModel required />
+          </mat-form-field> -->
+                <mat-form-field appearance="outline">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput type="text" placeholder="First Name" name="firstName" id="firstName" ngModel
+                        required />
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('firstName', 'required')">First Name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>LastName</mat-label>
+                    <input matInput type="text" placeholder="Last Name" name="lastName" id="lastName" ngModel
+                        required />
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('lastName', 'required')">Last Name is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <mat-form-field appearance="outline">
+                    <mat-label>E-Mail</mat-label>
+                    <input matInput type="email" placeholder="Email" name="email" id="eMail" ngModel required
+                        email="true" />
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('eMail', 'required')">E-Mail is required</mat-error>
+                    <mat-error *ngIf="myError('eMail', 'email')">E-Mail is not Valid</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Contact</mat-label>
+                    <input matInput type="contact" placeholder="Contadt Number" name="contact" id="number" ngModel
+                        required />
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('number', 'required')">Number is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" name="dob" id="dateOfBirth" ngModel required />
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('dateOfBirth', 'required')">Date of Birth is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select name="Gender" id="gender" ngModel required>
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Others">Others</mat-option>
+                    </mat-select>
+                    <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                    <mat-error *ngIf="myError('gender', 'required')">Gender is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your Password</mat-label>
+                    <input matInput name="password" id="password" ngModel required />
+                    <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="">
+                        <mat-icon><span class="material-symbols-outlined">
+                                visibility
+                            </span></mat-icon>
+                    </button>
+                    <mat-error *ngIf="myError('password', 'required')">Password is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput="" name="ConfirmPassword" ngModel required id="ConfirmPassword" />
+                    <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="">
+                        <mat-icon><span class="material-symbols-outlined">
+                                visibility
+                            </span></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-error *ngIf="">Password doesn't match</mat-error>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <mat-form-field class="Address" appearance="outline" style="width: 100%">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput name="address" id="address" ngModel></textarea>
+                    <mat-error *ngIf="myError('address', 'required')">Address is required</mat-error>
+                </mat-form-field>
+                <!-- <input class="ng-hide" id="input-file-id" multiple type="file" />
+        <label for="input-file-id" class="md-button md-raised md-primary"></label> -->
+            </div>
+            <!-- <button mat-raised-button color="primary">Register</button> -->
+            <div>
+                <button class="registerbtn" btn btn-primary type="submit" [disabled]="!patientForm.form.valid"
+                    mat-raised-button color="primary" routerLinkActive="active">
+                    Register
+                </button>
+                <mat-error *ngIf="">Already Registered</mat-error>
+            </div>
+        </form>
+    </div>
+</div>

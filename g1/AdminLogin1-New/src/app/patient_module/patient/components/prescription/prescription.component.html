@@ -1,0 +1,85 @@
+<div class="pres">
+    <h3>Prescription Details</h3>
+</div>
+<div class="example-table-container">
+    <div class="table_div">
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="prescriptionId">
+                <th mat-header-cell *matHeaderCellDef>Prescription ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.prescriptionId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prescriptionName">
+                <th mat-header-cell *matHeaderCellDef>Medicine</th>
+                <td mat-cell *matCellDef="let element"> {{element.prescriptionName}}</td>
+            </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="dosage">
+                <th mat-header-cell *matHeaderCellDef> Dosage </th>
+                <td mat-cell *matCellDef="let element"> {{element.dosage}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="prescriptionNotes">
+                <th mat-header-cell *matHeaderCellDef> Notes </th>
+                <td mat-cell *matCellDef="let element"> {{element.prescriptionNotes}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div><br>
+    <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons aria-label="Select page of periodic elements"
+        class="tablecss">
+    </mat-paginator>
+</div><br>
+
+<mat-card-footer>
+    <mat-card-actions fxFlexAlign="end">
+        <button mat-button class="end" style="height: fit-content; width: fit-content" (click)="closeDialog()">
+            <b>Close</b>
+        </button>
+
+
+        <!-- <div>
+    <h3 style="text-align:center">Prescription Details</h3>
+    <div class="Prescription">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+            <ng-container matColumnDef="demo-prid">
+                <th mat-header-cell *matHeaderCellDef style="font-family:MyFont3">Prescription Id</th>
+                <td mat-cell *matCellDef="let element">{{ element.prid }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="demo-medicine">
+                <th mat-header-cell *matHeaderCellDef>Medicine</th>
+                <td mat-cell *matCellDef="let element">{{ element.medicine }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="demo-dosage">
+                <th mat-header-cell *matHeaderCellDef>Dosage</th>
+                <td mat-cell *matCellDef="let element">{{ element.dosage }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="demo-notes">
+                <th mat-header-cell *matHeaderCellDef>Notes</th>
+                <td mat-cell *matCellDef="let element">{{ element.notes }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+
+        <br>
+        <mat-paginator [pageSizeOptions]="[2, 5,10]" showFirstLastButtons></mat-paginator>
+
+        <div class="close">
+            <button color="primary" mat-raised-button (click)="closeDialog()">
+                <span>Close</span>
+            </button>
+        </div>
+    </div>
+</div> -->

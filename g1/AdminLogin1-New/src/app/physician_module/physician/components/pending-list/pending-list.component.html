@@ -1,0 +1,64 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" style="margin-bottom: 15px;"
+    (selectedTabChange)="getCurrentDate($event)">
+    <i class="fa fa-calendar" aria-hidden="true"></i>
+    <mat-tab label="Today" name="Dob"></mat-tab>
+    <mat-tab label="Tommorrow"></mat-tab>
+</mat-tab-group>
+
+<div style="display: flex; justify-content: space-between">
+    <span style="font-size: xx-large; font-weight: 700">Pending Appointments</span>
+    <span>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" (dateChange)="SelectBydate($event.target.value)">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </span>
+</div>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid" style="
+      flex-flow: row wrap;
+      display: flex;
+      margin: 0px -143px -10px 0px;
+      box-sizing: border-box;
+    ">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let details of app; let i = index">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{patientData[i].firstName}} </mat-card-title><br />
+                    <mat-card-subtitle>Email : {{ patientData[i].email }}</mat-card-subtitle><br />
+                    <mat-card-subtitle>Email : {{ patientData[i].email }}</mat-card-subtitle><br />
+                    <div style="margin-left: 24%">
+                        <p style="margin-right: 5px;">Appointment Date : {{details.date}}</p>
+                        <p style="margin-right: 5px;">Physician: RamaKrishna</p>
+                    </div>
+                    <mat-card-subtitle>(age:{{patientData[i].dob | age}}
+                        {{patientData[i].gender}})</mat-card-subtitle><br />
+                    <mat-card-subtitle>Contact Number:{{ patientData[i].contactNumber }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <h4 style="margin: 10px ;display: inline;">Reason: </h4><span>{{ details.reason }}</span>
+
+                </mat-card-content>
+                <br />
+                <mat-card-footer style="text-align: right">
+                    <mat-card-action fxFlexAlign="end">
+
+                        <button [id]="'accept-btn-' + details.id" (click)="acceptAppointment(details.id)"
+                            mat-icon-button class="end" style="height: fit-content; width: fit-content">
+                            <b>Accept</b>
+                        </button>
+                        <button type="button" [id]="'reject-btn-' + details.id" (click)="rejectAppointment(details.id)"
+                            class="end" style="height: fit-content; width: fit-content">
+                            <b>Reject</b>
+                        </button>
+                    </mat-card-action>
+                </mat-card-footer>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

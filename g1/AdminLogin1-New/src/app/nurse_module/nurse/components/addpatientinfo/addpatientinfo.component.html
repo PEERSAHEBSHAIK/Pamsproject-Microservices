@@ -1,0 +1,138 @@
+<div FxFle class="card-wrapper">
+    <div class="card-custom">
+        <div class="card-description" style="padding: 20px">
+            <p>
+                <span style="font-weight: 700">Name : </span>{{ patient.firstName }}
+            </p>
+            <p><span style="font-weight: 700">Age :</span> {{ patient.dob }}</p>
+            <p><span style="font-weight: 700">Gender :</span> {{ patient.gender }}</p>
+            <p>
+                <span style="font-weight: 700">Mbl No :</span>
+                {{ patient.contactNumber }}
+            </p>
+        </div>
+        <div class="rightcard" style="padding: 20px">
+            <p><span style="font-weight: 700">blood group</span>: b+ve</p>
+            <p>
+                <span style="font-weight: 700">Last Consultation Date:</span> 13/02/2022
+            </p>
+            <p>
+                <span style="font-weight: 700">Last Consultation with:</span> Aman
+                Kurkure
+            </p>
+            <p>
+                <span style="font-weight: 700; word-wrap: break-word">Key Notes on previous Consultation</span>: abc
+                sdagcdvjkbfjsdbvjsbdvjbs djbsdbfsdnfcvdifusj
+                bvidurbiwefciseunhoiuewh nie hisehinhseiucnh
+            </p>
+        </div>
+    </div>
+    <div class="mainbtn" style="display: flex; justify-content: space-between">
+        <button mat-raised-button (click)="openDialog()" color="primary" style="width: 50%">
+            Previous Health History
+        </button>
+    </div>
+</div>
+
+<h3>Enter the Patient Details</h3>
+<div class="visitDetails">
+    <form #appointment="ngForm" (ngSubmit)="onSubmitt(appointment.value)" novalidate>
+        <!-- <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="70px"
+        fxLayout.lt-sm="column"
+        [ngStyle.xs]="{ 'font-size.px': 10, color: 'blue' }"
+        style="display: flex; flex-wrap: wrap"
+      > -->
+        <div>
+            <mat-form-field>
+                <mat-label>height</mat-label>
+                <input matInput type="text" placeholder="160 (in cm)" name="heightt" id="heightt" ngModel required />
+                <!-- <mat-hint align="end">Not more then 50 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('heightt', 'required')">height is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>weight</mat-label>
+                <input matInput type="text" placeholder="67 (in kg)" name="weightt" id="weightt" ngModel required />
+                <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('weightt', 'required')">weight is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Bloodpressure Systolic</mat-label>
+                <input matInput type="text" placeholder="80 mmHg" name="bpSystolic" id="bpSystolic" fxFlexOffset="20px"
+                    ngModel required />
+                <!-- <mat-hint align="end">Not more then 20 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('bpSystolic', 'required')">Bloodpressure Systolic is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>bloodPressure Diastolic</mat-label>
+                <input matInput type="text" placeholder="80 mmHg" name="bpDiastolic" id="bpDiastolic" ngModel
+                    required />
+                <!-- <mat-hint align="end">Not more then 50 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('bpDiastolic', 'required')">BloodPressure Diastolic is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Respiration Rate</mat-label>
+                <input matInput type="text" placeholder="Breaths per minute" name="respirationRate" id="respirationRate"
+                    ngModel required />
+                <!-- <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('respirationRate', 'required')">Respiration Rate is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>sugar</mat-label>
+                <input matInput type="text" placeholder="140 (in mg/dL)" name="sugar" id="sugar" fxFlexOffset="20px"
+                    ngModel required />
+                <!-- <mat-hint align="end">Not more then 20 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('sugar', 'required')">sugar is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>BodyTemperature</mat-label>
+                <input matInput type="text" placeholder="37( in celsius)" name="bodyTemperature" id="bodyTemperature"
+                    ngModel required />
+                <!-- <mat-hint align="end">Not more then 50 characters long.</mat-hint> -->
+                <mat-error *ngIf="myError('bodyTemperature', 'required')">BodyTemperature is required</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field>
+            <input
+              matInput
+              type="text"
+              placeholder="Allergies"
+              formContr="allergies"
+              id="myAddress"
+              ngModel
+              required
+            />
+  
+             <mat-hint align="end">Not more then 10 characters long.</mat-hint> -->
+            <!-- <mat-error *ngIf="myError('mycity', 'required')"
+              >Allergies is required</mat-error
+            >
+          </mat-form-field> -->
+            <mat-form-field appearance="fill">
+                <mat-label>Allergies</mat-label>
+                <mat-select ngModel name="allergies" id="allergies" [formControl]="toppings" multiple required
+                    restrictKeywordValidator="Food-allergy">
+                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+                        topping
+                        }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="myError('allergies', 'required')">Allergies are required</mat-error>
+            </mat-form-field>
+
+
+        </div>
+        <div>
+            <textarea name="somethingData" class="inputform" placeholder="Notes to physician..." ngModel
+                required></textarea>
+        </div>
+        <button mat-raised-button type="submit" class="btnform">submit</button>
+    </form>
+</div>

@@ -1,0 +1,88 @@
+<!-- <div *ngIf="auth.user$|async as user">
+    <h2>Welcome {{user.name}}</h2>
+    <p>{{user.email}}</p>
+    <p>{{user['role']}} djdjsjkdb</p>
+</div>
+<div [@.disabled]="true">
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="Column Chart">
+            <ng-template matTabContent>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Pie Chart">
+            <ng-template matTabContent>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Line Chart">
+            <ng-template matTabContent>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div> -->
+<!-- <img src="https://images.unsplash.com/photo-1603807008857-ad66b70431aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80"
+    style="height: 100vh;width: 100%;padding:0;" /> -->
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div *ngIf="auth.user$|async as user" class="main__title">
+    <div>
+        <h1>{{user['role']}}</h1>
+    </div>
+    <div>
+        <h2>Welcome {{user.name}}!</h2>
+    </div>
+</div>
+
+
+<div class="main__cards">
+    <div class="card">
+        <i class="fa-solid fa-user fa-2x"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Admins</p>
+            <span class="font-bold text-title">
+                <h1>50</h1>
+            </span>
+        </div>
+    </div>
+    <div class="card">
+        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Patients</p>
+            <span class="font-bold text-title">
+                <h1>50</h1>
+            </span>
+        </div>
+    </div>
+    <div class="card">
+        <i class="fa fa-user-md fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Doctors</p>
+            <span class="font-bold text-title">
+                <h1>{{count}}</h1>
+            </span>
+        </div>
+    </div>
+    <div class="card">
+        <i class="fa fa-user-nurse fa-2x" aria-hidden="true"></i>
+        <div class="card_inner">
+            <p class="text-primary-p">Nurses</p>
+            <span class="font-bold text-title">
+                <h1>50</h1>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="flex">
+    <div class="card1">
+        One of three columns
+    </div>
+    <div class="card1">
+        One of three columns
+    </div>
+    <div class="card1">
+        One of three columns
+    </div>
+</div> -->

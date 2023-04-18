@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+}
+
+.div1 {
+    float: left;
+    margin-left: 3%;
+}
+
+.mat-elevation-z8 demo-table {
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.test {
+    height: 300px;
+    margin-top: 10%;
+    width: 700px;
+    margin-left: 11%;
+
+}
+
+.details {
+    width: 900px;
+}
+
+.div2 {
+    float: right;
+    margin-right: 3%;
+}
+
+.mat-column-demo-tid {
+    text-align: center;
+    border-right: 1px solid currentColor;
+}
+
+.mat-column-demo-testname {
+    text-align: center;
+    border-right: 1px solid currentColor;
+}
+
+.mat-column-demo-result {
+    text-align: center;
+    border-right: 1px solid currentColor;
+}
+
+.mat-column-demo-status {
+    text-align: center;
+    border-right: 1px solid currentColor;
+}
+
+.Prescription {
+    text-align: center;
+    border-right: 1px solid currentColor;
+}

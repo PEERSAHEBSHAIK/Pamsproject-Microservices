@@ -1,0 +1,50 @@
+<div>
+    <mat-form-field appearance="outline" style="margin:10px;">
+        <mat-label>Serach</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+</div>
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid" style="
+        flex-flow: row wrap;
+        display: flex;
+        margin: 0px -143px -10px 0px;
+        box-sizing: border-box;
+      ">
+        <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="33%"
+            *ngFor="let detail of this.dataSource.filteredData ; let i = index">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ patientData[i].firstName+" "+patientData[i].lastName}}</mat-card-title><br />
+                    <mat-card-subtitle>Email : {{ patientData[i].email }}</mat-card-subtitle><br />
+                    <div style="margin-left: 24%">
+                        <h3>Appointment Date : {{ detail.date }}</h3>
+                        <h3>Physician: {{ detail.physcianEmail }}</h3>
+                    </div>
+
+                    <mat-card-subtitle>DOB:{{ patientData[i].dob }}</mat-card-subtitle><br />
+                    <mat-card-subtitle>Contact Num:{{ patientData[i].contactNumber }}</mat-card-subtitle>
+                    <mat-card-subtitle>Gender: {{ patientData[i].gender }}</mat-card-subtitle>
+                </mat-card-header>
+
+                <h3 style="margin: 0px 0px 0px 16px">Reason:</h3>
+
+                <mat-card-content>
+                    <p>
+                        {{ detail.reason }}
+                    </p>
+                </mat-card-content>
+                <br />
+                <mat-card-footer style="text-align: right">
+                    <mat-card-action fxFlexAlign="end">
+                        <button mat-button class="end" style="height: fit-content; width: fit-content"
+                            routerLink="/nurse/addpatientinfo" (click)="id(i,detail.id,detail.physcianEmail)">
+                            <b>Add Patient Info for {{ patientData[i].firstName+" "+patientData[i].lastName}}</b>
+                        </button>
+                    </mat-card-action>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>

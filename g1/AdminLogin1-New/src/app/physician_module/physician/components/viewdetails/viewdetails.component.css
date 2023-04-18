@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* .card-wrapper {
+    border: 1px solid #191825;
+    border-radius: 10px;
+    padding: .75rem;
+
+} */
+
+.mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+.card-custom {
+    display: flex;
+    width: 100vw;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+.example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: 300px;
+    width: 300px;
+}
+
+
+.example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: 300px;
+    width: 300px;
+}
+
+.mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+.fieldone input {
+    border: none;
+    border-bottom: 1px solid grey;
+    border-radius: 8px 8px 0 0;
+    width: 30%;
+    background-color: whitesmoke;
+    padding: 15px;
+    margin: 5px 10px;
+    outline: none;
+}
+
+.btnsubmit {
+    padding: 15px;
+    width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: green;
+    font-size: 18px;
+    color: white;
+}
+
+
+
+
+section {
+    display: table;
+}
+
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+.input {
+    border: none;
+    padding: 15px;
+    background: whitesmoke;
+    border-bottom: 1px solid grey;
+    border-radius: 8px 8px 0 0;
+}
+
+
+
+
+/* button */
+
+.submitbtn::before {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1, 0.1);
+}
+
+.submitbtn:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.submitbtn::after {
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.submitbtn:hover::after {
+    transform: scale(1, .1);
+    opacity: 0;
+}
+
+.btn {
+    width: 120px;
+    height: 30px;
+    position: relative;
+    left: 37%;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: darkseagreen;
+    font-size: 22px;
+}
+
+.submitbtn {
+    width: 20%;
+    height: 30px;
+    position: relative;
+    left: 37%;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: darkseagreen;
+    font-size: 22px;
+}
+
+.previoushealth {
+    position: fixed;
+    bottom: 10px;
+    color: white;
+    background-color: #810CA8;
+}
+
+
+.done {
+    position: fixed;
+    color: white;
+    background-color: #810CA8;
+    bottom: 10px;
+    width: 10vw;
+    right: 10px;
+}
